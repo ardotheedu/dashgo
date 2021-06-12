@@ -1,10 +1,10 @@
 import { Flex, Button, Stack  } from '@chakra-ui/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Input } from '../components/Form/Input'
 import * as yup from 'yup';
+import { Input } from '../components/Form/Input'
 import {yupResolver} from '@hookform/resolvers/yup'
 
-type SignInformData = {
+type SignInFormData = {
   email: string;
   password: string
 }
@@ -20,7 +20,7 @@ export default function Home() {
   })
 
   const {errors} = formState
-  const handleSignIn: SubmitHandler<SignInformData> = async (values) => {
+  const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
     console.log(values)
   }
