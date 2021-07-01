@@ -30,7 +30,7 @@ const options = {
         enabled: false,
     },
     xaxis: {
-        type: 'datetime',
+        type: 'datetime' as const,
         axisBorder: {
             color: theme.colors.gray[600]
         },
