@@ -19,7 +19,7 @@ type CreateUserFormData = {
   }
   
   const createUserFormData = yup.object().shape({
-    name: yup.string().required('Nome obrigatório.'),
+    name: yup.string().required('Nome obrigatorio.'),
     email: yup.string().required('E-mail obrigatório.').email('E-mail invalido'),
     password: yup.string().required('Senha obrigatório.'),
     password_confirmation: yup.string().oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
@@ -67,12 +67,12 @@ export default function UserList() {
 
                     <VStack spacing="8">
                         <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-                            <Input name="name" label="Nome completo" error={errors.name} ref={register} />
-                            <Input name="email" type="email" label="E-mail" error={errors.email} ref={register}/>
+                            <Input name="name" label="Nome completo" error={errors.name}  {...register('name')} />
+                            <Input name="email" type="email" label="E-mail" error={errors.email}  {...register('email')}/>
                         </SimpleGrid>
                         <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-                            <Input name="password" type="password" label="Senha" error={errors.password} ref={register} />
-                            <Input name="password_confirmation" type="password" label="Confirmação da senha" error={errors.password_confirmation} ref={register} />
+                            <Input name="password" type="password" label="Senha" error={errors.password}  {...register('password')} />
+                            <Input name="password_confirmation" type="password" label="Confirmação da senha" error={errors.password_confirmation}  {...register('password_confirmation')} />
                         </SimpleGrid>
                     </VStack>        
 
